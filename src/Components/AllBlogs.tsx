@@ -1,9 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
 import PostCard from "./PostCard";
-
+import type { BlogPost } from "../Types/Type";
 const AllBlogs = () => {
   const data = JSON.parse(localStorage.getItem("blogPostsByUser") || "{}");
-  const allData = Object.values(data).flat();
+  console.log(data, "Thiss");
+  const rawdata: any[] = Object.values(data).flat() || [];
+  const allData: BlogPost[] = rawdata;
 
   return (
     <Box sx={{ m: 3 }}>
@@ -29,7 +31,7 @@ const AllBlogs = () => {
             no post yet...
           </Typography>
         ) : (
-          allData.map((post) => (
+          allData?.map((post: BlogPost) => (
             <Grid size={{ xs: 12, md: 3, lg: 3 }} key={post.id}>
               <PostCard post={post} />
             </Grid>
