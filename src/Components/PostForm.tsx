@@ -32,66 +32,64 @@ const PostForm: React.FC = () => {
       content,
       date: new Date().toLocaleDateString(),
     });
-    navigate("/allblog");
+    navigate("/myblog");
   };
 
   return (
-    <>
-      <Box sx={{ p: 2, m: 1 }}>
-        <Box>
-          <TextField
-            sx={{ m: 2, background: "white" }}
-            fullWidth
-            label="Title"
-            variant="filled"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </Box>
-
+    <Box sx={{ p: 2, m: 1 }}>
+      <Box>
         <TextField
           sx={{ m: 2, background: "white" }}
           fullWidth
-          label="Author"
+          label="Title"
           variant="filled"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
-
-        <Box sx={{ m: 2, width: "100%" }}>
-          <JoditEditor
-            ref={editor}
-            value={content}
-            tabIndex={1}
-            onBlur={(newContent) => setContent(newContent)}
-            config={{
-              readonly: false,
-              height: "400px",
-            }}
-          />
-        </Box>
-
-        <Button
-          variant="contained"
-          sx={{
-            width: "10rem",
-            height: "3rem",
-            background: "#799351",
-            color: "white",
-            fontWeight: "bold",
-            fontSize: "1.2rem",
-            p: 1,
-            m: 2,
-            "&:hover": {
-              background: "#DA6C6C",
-            },
-          }}
-          onClick={handleSubmit}
-        >
-          Post
-        </Button>
       </Box>
-    </>
+
+      <TextField
+        sx={{ m: 2, background: "white" }}
+        fullWidth
+        label="Author"
+        variant="filled"
+        value={author}
+        onChange={(e) => setAuthor(e.target.value)}
+      />
+
+      <Box sx={{ m: 2, width: "100%" }}>
+        <JoditEditor
+          ref={editor}
+          value={content}
+          tabIndex={1}
+          onBlur={(newContent) => setContent(newContent)}
+          config={{
+            readonly: false,
+            height: "400px",
+          }}
+        />
+      </Box>
+
+      <Button
+        variant="contained"
+        sx={{
+          width: "10rem",
+          height: "3rem",
+          background: "#799351",
+          color: "white",
+          fontWeight: "bold",
+          fontSize: "1.2rem",
+          p: 1,
+          m: 2,
+          "&:hover": {
+            background: "#DA6C6C",
+          },
+        }}
+        onClick={handleSubmit}
+      >
+        Post
+      </Button>
+    </Box>
   );
 };
 

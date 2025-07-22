@@ -2,7 +2,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import PostCard from "./PostCard";
 import { useBlogContext } from "../CustomHooks/UseBlog";
 
-const AllBlog: React.FC = () => {
+const MyBlog: React.FC = () => {
   const { posts } = useBlogContext();
 
   return (
@@ -18,7 +18,7 @@ const AllBlog: React.FC = () => {
           textAlign: { xs: "center" },
         }}
       >
-        All Posts Here
+        Your Posts Here
       </Typography>
 
       <Grid container spacing={2}>
@@ -38,4 +38,4 @@ const AllBlog: React.FC = () => {
     </Container>
   );
 };
-export default AllBlog;
+export default MyBlog;

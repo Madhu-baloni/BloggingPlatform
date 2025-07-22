@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -7,7 +8,6 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { useBlogContext } from "../../CustomHooks/UseBlog";
 
 const AuthPage: React.FC = () => {
@@ -152,7 +152,6 @@ const AuthPage: React.FC = () => {
           <Button
             variant="text"
             sx={{ color: "#799351", fontWeight: "bold", fontSize: "1.2rem" }}
-            // onClick={() => setIsSignup(!isSignup)}
             onClick={toggleForm}
           >
             {isSignup ? "Login" : "Sign Up"}

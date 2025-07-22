@@ -2,10 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../Components/Layout";
 import HomePage from "../Components/HomePage";
 import CreatePost from "../Components/CreatePost";
-import AllBlog from "../Components/AllBlog";
 import StoryPage from "../Components/StoryPage";
 import AuthPage from "../Components/Authentication/AuthPage";
 import { Typography } from "@mui/material";
+import MyBlog from "../Components/MyBlog";
+import AllBlogs from "../Components/AllBlogs";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
         element: <AuthPage />,
       },
       {
+        path: "/myblog",
+        element: <MyBlog />,
+      },
+      {
         path: "/allblog",
-        element: <AllBlog />,
+        element: <AllBlogs />,
       },
       {
         path: "*",

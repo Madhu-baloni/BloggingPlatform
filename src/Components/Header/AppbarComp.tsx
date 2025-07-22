@@ -64,15 +64,15 @@ const AppbarComp: React.FC = () => {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "start",
           }}
         >
           <Typography
             sx={{
               fontWeight: "bold",
-              fontSize: "1.2rem",
+              fontSize: { xs: "1rem", md: "1.2rem" },
               color: "#537D5D",
-              mt: 1,
+              mt: 1.5,
+              mr: { xs: 1, md: 3 },
               cursor: "pointer",
               textShadow: "2px 2px 5px #799351",
               "&:hover": { textShadow: "2px 2px 5px #DA6C6C" },
@@ -82,12 +82,17 @@ const AppbarComp: React.FC = () => {
             BlogSpot
           </Typography>
 
-          <Stack direction="row" spacing={5} alignItems="center">
+          <Stack
+            direction="row"
+            spacing={5}
+            alignItems="center"
+            sx={{ p: { xs: 1, md: 0 } }}
+          >
             <Typography
               onClick={() => navigate("/storypage")}
               sx={{
                 fontWeight: "bold",
-                fontSize: "1.1rem",
+                fontSize: { xs: "1rem", md: "1.2rem" },
                 color: "#537D5D",
                 cursor: "pointer",
                 textShadow: "2px 2px 5px #799351",
@@ -96,11 +101,26 @@ const AppbarComp: React.FC = () => {
             >
               Our Story
             </Typography>
+
+            <Typography
+              onClick={() => navigate("/myblog")}
+              sx={{
+                fontWeight: "bold",
+                fontSize: { xs: "1rem", md: "1.2rem" },
+                color: "#537D5D",
+                cursor: "pointer",
+                textShadow: "2px 2px 5px #799351",
+                "&:hover": { color: "#DA6C6C" },
+              }}
+            >
+              My Blogs
+            </Typography>
+
             <Typography
               onClick={() => navigate("/allblog")}
               sx={{
                 fontWeight: "bold",
-                fontSize: "1.1rem",
+                fontSize: { xs: "1rem", md: "1.2rem" },
                 color: "#537D5D",
                 cursor: "pointer",
                 textShadow: "2px 2px 5px #799351",
@@ -113,6 +133,7 @@ const AppbarComp: React.FC = () => {
             <IconButton onClick={handleMenuClick}>
               <AccountCircleIcon sx={{ color: "#537D5D", fontSize: "2rem" }} />
             </IconButton>
+
             <Menu
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}

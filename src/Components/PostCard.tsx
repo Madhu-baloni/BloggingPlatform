@@ -1,9 +1,11 @@
+import { useLocation } from "react-router-dom";
 import { Box, Button, Card, CardContent, Typography } from "@mui/material";
-
 import type { BlogPost } from "../Types/Type";
 import { useBlogContext } from "../CustomHooks/UseBlog";
 
 const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+  const location = useLocation();
+  const isAllBlogPage = location.pathname.includes("allblog");
   const { deletePost } = useBlogContext();
   const plainText = post.content.replace(/<[^>]+>/g, "");
 
@@ -12,8 +14,8 @@ const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
       <Card
         sx={{
           background: "#799351",
-          maxHeight: { xs: "30rem", md: "40rem" },
-          minHeight: { xs: "30rem", md: "40rem" },
+          maxHeight: { xs: "35rem", md: "40rem" },
+          minHeight: { xs: "35rem", md: "40rem" },
           maxWidth: { xs: "25rem", md: "20rem" },
           minWidth: { xs: "10rem", md: "20rem" },
           "&:hover": {
@@ -22,24 +24,32 @@ const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
           },
         }}
       >
-        <CardContent sx={{ overflowY: "auto" }}>
-          <Typography
-            sx={{ fontSize: "2rem", color: "white", textAlign: "center" }}
-          >
-            {" "}
-            {post.title}
-          </Typography>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+            color: "white",
+            textAlign: "center",
+            p: 3,
+            fontWeight: "bold",
+          }}
+        >
+          {" "}
+          {post.title}
+        </Typography>
 
+        <CardContent sx={{ overflowY: "auto" }}>
           <Box
             sx={{
               fontSize: "1.2rem",
               color: "white",
               p: 1,
+              textAlign: "justify",
             }}
           >
             {plainText}
           </Box>
         </CardContent>
+
         <Box sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box sx={{ display: "block" }}>
             <Typography
@@ -62,12 +72,14 @@ const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
             </Typography>
           </Box>
 
-          <Button
-            onClick={() => deletePost(post.id)}
-            sx={{ color: "white", fontSize: "1rem", p: "1rem" }}
-          >
-            Delete
-          </Button>
+          {!isAllBlogPage && (
+            <Button
+              onClick={() => deletePost(post.id)}
+              sx={{ color: "white", fontSize: "1rem", p: "1rem" }}
+            >
+              Delete
+            </Button>
+          )}
         </Box>
       </Card>
     </Box>

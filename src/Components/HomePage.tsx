@@ -25,6 +25,7 @@ const HomePage: React.FC = () => {
           >
             Human
           </Box>
+
           <Typography
             sx={{
               fontWeight: "bolder",
@@ -71,8 +72,6 @@ const HomePage: React.FC = () => {
         <Grid size={{ xs: 12, md: 6 }}>
           <Box
             sx={{
-              // maxWidth: "100%",
-              // height: "auto",
               objectFit: "cover",
               marginTop: "-7rem",
             }}
