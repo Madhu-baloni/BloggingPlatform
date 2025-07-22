@@ -37,12 +37,13 @@ const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
           {post.title}
         </Typography>
 
-        <CardContent sx={{ overflowY: "auto" }}>
+        <CardContent sx={{}}>
           <Box
             sx={{
               fontSize: "1.2rem",
               color: "white",
-              p: 1,
+              maxHeight: "25rem",
+              overflowY: "auto",
               textAlign: "justify",
             }}
           >
