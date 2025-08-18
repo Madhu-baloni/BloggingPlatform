@@ -50,6 +50,7 @@ const HomePage: React.FC = () => {
           >
             A place to read, write, and deepen your understanding
           </Typography>
+
           <Box sx={{ textAlign: "center" }}>
             <Button
               sx={{

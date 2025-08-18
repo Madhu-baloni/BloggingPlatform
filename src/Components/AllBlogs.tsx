@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from "@mui/material";
 import PostCard from "./PostCard";
 import type { BlogPost } from "../Types/Type";
+
 const AllBlogs = () => {
   const data = JSON.parse(localStorage.getItem("blogPostsByUser") || "{}");
-  console.log(data, "Thiss");
-  const rawdata: any[] = Object.values(data).flat() || [];
+  const rawdata: BlogPost[] = (Object.values(data).flat() as BlogPost[]) || [];
   const allData: BlogPost[] = rawdata;
 
   return (

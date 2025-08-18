@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Typography } from "@mui/material";
 import Layout from "../Components/Layout";
 import HomePage from "../Components/HomePage";
 import CreatePost from "../Components/CreatePost";
 import StoryPage from "../Components/StoryPage";
 import AuthPage from "../Components/Authentication/AuthPage";
-import { Typography } from "@mui/material";
 import MyBlog from "../Components/MyBlog";
 import AllBlogs from "../Components/AllBlogs";
 

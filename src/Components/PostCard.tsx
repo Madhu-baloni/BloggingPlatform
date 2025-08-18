@@ -59,7 +59,7 @@ const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                 color: "white",
               }}
             >
-              {post.author}
+              {post.author.split("@")[0]}
             </Typography>
 
             <Typography

@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import JoditEditor from "jodit-react";
+import { ToastContainer, toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 import { Box, Button, TextField } from "@mui/material";
 import { useBlogContext } from "../CustomHooks/UseBlog";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostForm: React.FC = () => {
   const [title, setTitle] = useState<string>("");
@@ -25,6 +27,11 @@ const PostForm: React.FC = () => {
   }, [navigate]);
 
   const handleSubmit = () => {
+    if (!content.trim()) {
+      toast.warn("Please provide content before posting!");
+      return;
+    }
+
     addPost({
       id: uuidv4(),
       title,
@@ -89,6 +96,17 @@ const PostForm: React.FC = () => {
       >
         Post
       </Button>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </Box>
   );
 };

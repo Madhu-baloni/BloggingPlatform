@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import AppbarComp from "./Header/AppbarComp";
 import { Box } from "@mui/material";
+import AppbarComp from "./Header/AppbarComp";
 import Footer from "./Footer.tsx/FooterComp";
 
 const Layout = () => {
